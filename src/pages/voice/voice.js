@@ -4,8 +4,7 @@ import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/footer";
 import alanBtn from "@alan-ai/alan-sdk-web";
 // let alanKey = "67254c6d750a036c9a01ac6ae831c3202e956eca572e1d8b807a3e2338fdd0dc/stage
-let alanKey =
-  "2929637674a720da423ab91d9237489a2e956eca572e1d8b807a3e2338fdd0dc/stage";
+const alanKey = process.env.ALAN_API_KEY;
 
 const Voice = () => {
   const [load, setLoad] = useState(false);
@@ -157,7 +156,7 @@ const Voice = () => {
                 <br />
               </p>
               {/*<p className="text-lg font-medium">{organic1.toString()}<br /></p>*/}
-              {organic1}
+              <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(organic1) }} />
               <div className="flex flex-row place-content-end">
                 <p className="text-xs font-medium text-green-600">
                   <a href={organic1Link}>Read More</a>
@@ -171,7 +170,7 @@ const Voice = () => {
                 <br />
               </p>
               {/*<p className="text-lg font-medium">{organic1.toString()}<br /></p>*/}
-              {organic2}
+              {sanitize(organic2)}
               <div className="flex flex-row place-content-end">
                 <p className="text-xs font-medium text-green-600">
                   <a href={organic2Link}>Read More</a>
