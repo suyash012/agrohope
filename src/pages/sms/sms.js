@@ -15,9 +15,7 @@ const SmsService = () => {
     let url =
       "http://127.0.0.1:3000/find_response/" + lang + "/+91 1234567890/" + log;
 
-    let value = await fetch(url, {
-      method: "get"
-    });
+let value = await fetch(url, { method: 'get', headers: { 'Content-Security-Policy': 'default-src \'self\'' } });
 
     setLoad(false);
     console.log(value);
